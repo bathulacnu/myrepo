@@ -1,0 +1,29 @@
+# yum install git
+
+# git init   (Initalizing the git repository )
+
+# git status
+
+# git add .   (Adds all folder 
+
+or 
+
+# git add "file/folder name"
+
+# git add . (adding  all file's and folder's recursively)d
+
+# git add myrepo (folder name)
+
+# git status
+
+new file:   20160627.txt
+
+# git commit -m "Initial commit"
+
+# git config --global user.name SRINIVASRAO
+
+# git config --global user.email bathulacnu@ymail.com
+
+# git remote add origin https://github.com/bathulacnu/myrepo.git
+
+
