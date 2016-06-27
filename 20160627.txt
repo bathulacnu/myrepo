@@ -24,6 +24,8 @@ new file:   20160627.txt
 
 # git config --global user.email bathulacnu@ymail.com
 
-# git remote add origin https://github.com/bathulacnu/myrepo.git
+# git remote add origin https://bathulacnu@github.com/bathulacnu/myrepo.git
+
+# git push origin master 
 
 
