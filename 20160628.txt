@@ -21,8 +21,41 @@ cd /var/www/wp_idsqainfo/info/drivers-ed/
 
 scp -r florida/ root@10.10.90.230:/var/www/INFO_PPC_WPIDS/info/drivers-ed/
 
+Marketo.idrivesafely.com in Production Server 10.10.90.244/234
+=================================================================
 
+ssh root@10.10.90.244
 
+# cd /etc/httpd/conf.d/
 
+# touch marketo.conf
 
+NameVirtualHost *:8080
+<VirtualHost *:8080>
+       ServerAdmin dev@idrivesafely.com
+       ServerAlias marketo.idrivesafely.com
+       ServerName commondb01.idrivesafely.com
+       DocumentRoot /var/www/MARKETO/public_html
+       #ScriptAlias /cgi /var/www/MARKETO/CGI
+       ErrorLog /var/log/httpd/marketo_error_log
+       TransferLog /var/log/httpd/marketo_access_log
+       DirectoryIndex index.php default.php
+       <Directory "/var/www/MARKETO/public_html">
+       RewriteEngine On
+       RewriteCond %{REQUEST_FILENAME} !-f
+       RewriteCond %{REQUEST_FILENAME} !-d
+       RewriteRule .* index.php/$0 [PT,L]
+
+       Options +ExecCGI
+       AllowOverride AuthConfig
+       Options +FollowSymlinks
+      </Directory>
+</VirtualHost>
+
+# vim /etc/hosts
+10.10.90.2344 marketo.idrivesafely.com
+
+# apachectl configtest
+# apachectl graceful
+# ps axf |grep httpd
 
