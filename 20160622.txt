@@ -1,0 +1,58 @@
+10.10.90.207
+
+SEO PATH
+===========
+ /var/www/wp_idsqa/
+
+ /var/www/wp_idsqa/wp-content/themes/enterprise-pro
+
+PPC PATH
+==========
+ /var/www/wp_idsqainfo/info/
+ 
+ 
+ 
+10.10.90.230
+
+SEO PATH
+=========
+ /var/www/WP_IDS/beta/
+ 
+PPC PATH
+=========
+ /var/www/INFO_PPC_WPIDS/info/
+ 
+ scp -r florida/ root@10.10.90.230:/var/www/INFO_PPC_WPIDS/info/drivers-ed/florida/
+ 
+ 
+ VijayaBhasker pfx to crt conversion
+ =======================================
+ 
+ openssl pkcs12 -in /home/bhasker/Downloads/cert5.pfx -clcerts -nokeys -out /home/bhasker/Downloads/cert5.crt
+ 
+  VijayaBhasker pfx to pem conversion
+ =======================================
+ 
+ openssl pkcs12 -in /home/bhasker/Downloads/cert5.pfx -nocerts -out /home/bhasker/Downloads/cert5.pem -nodes
+ 
+   VijayaBhasker pem to key conversion with no pass password
+ ===========================================================
+ 
+ openssl rsa -in /home/bhasker/Downloads/cert5.pem -out /home/bhasker/Downloads/cert5Q.key 
+ 
+ 
+ Sabitha SNV ADD FOLDER TO TRUNK
+ ================================
+ 
+ mkdir florida
+ 
+ svn add florida
+ 
+ svn commit -m 'Folder creation' florida
+ 
+ Addinng IP address through ifconfig & route
+ =============================================
+ 
+ ifconfig eth0 192.168.1.152 netmask 255.255.255.0
+ 
+ route add default gw 192.168.1.2

@@ -1,0 +1,28 @@
+
+cd /var/www/wp_idsqa/wp-content/themes/enterprise-pro/
+
+scp -r custom-minified.css custom.css root@10.10.90.230:/var/www/WP_IDS/beta/wp-content/themes/enterprise-pro/
+
+cd widgets/trust-logos/
+
+scp -r trust-logos.php root@10.10.90.230:/var/www/WP_IDS/beta/wp-content/themes/enterprise-pro/widgets/trust-logos/
+
+cd /var/www/wp_idsqainfo/info/wp-content/themes/enterprise-pro
+
+scp -r custom-minified.css custom.css functions.php root@10.10.90.230:/var/www/INFO_PPC_WPIDS/info/wp-content/themes/enterprise-pro/
+
+scp -r functions.php root@10.10.90.230:/var/www/INFO_PPC_WPIDS/info/wp-content/themes/enterprise-pro/
+
+cd /var/www/wp_idsqa/wp-content/themes/enterprise-pro/widgets/trust-logos/
+
+scp -r trust-logos.php root@10.10.90.230:/var/www/WP_IDS/beta/wp-content/themes/enterprise-pro/widgets/trust-logos/
+
+cd /var/www/wp_idsqainfo/info/drivers-ed/
+
+scp -r florida/ root@10.10.90.230:/var/www/INFO_PPC_WPIDS/info/drivers-ed/
+
+
+
+
+
+
