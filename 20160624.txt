@@ -1,0 +1,4 @@
+
+Installed p7zip for Datawarehouse person
+=========================================== 
+# yum install p7zip 
