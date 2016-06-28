@@ -1,0 +1,87 @@
+http://www.jabong.com/Yepme-Blue-Solid-High-Neck-Sweater-1930505.html?pos=70
+
+http://www.jabong.com/John_Player-Brown-Solid-High-Neck-Sweater-1650113.html?pos=14
+
+http://www.jabong.com/northern-lights-Solid-Black-High-Neck-Sweater-1132817.html?pos=18
+
+
+
+
+Mahipal System Low Diskspace ISSUE resolved by creating softlink
+==================================================================
+
+setfacl -Rm u:edventures:rwx /home
+setfacl -Rm u:www:rwx /home
+
+cp TEEN_MIG /home/edventures/TEEN_MIG
+
+ln -s /home/edventures/TEEN_MIG TEEN_MIG
+
+chown -R www:www TEEN_MIG
+
+chown -R www:www /home/edventures/TEEN_MIG
+
+apachectl configtest
+
+apachectl graceful
+
+proxyctl configtest
+
+apachectl graceful
+
+Mahipal DIP Server Error_Log Check
+======================================
+
+tail -500 /www/logs/ids/error_log |grep -e "Thu Jun 23"
+tail -500 /www/logs/ids/error_log |grep -e "Wed Jun 22"
+
+
+tail -500 /www/logs/error_log |grep -e "Thu Jun 23"
+tail -500 /www/logs/error_log |grep -e "Wed Jun 22"
+
+
+
+Ajay Request for Mature to DIP Merge
+==============================================
+
+
+vim /ids/tools/CONF/dip01/httpd.conf
+
+:46
+
+   Alias /maturemedia /ids/tools/CONTENT/maturemedia
+   Alias /contentimages  /ids/tools/DIP/IMAGES/content/MATURE
+
+vim /ids/tools/CONF/dip01/http_wpproxypass.inc
+
+:151
+
+ProxyPass /maturemedia/ http://www.idrivesafely.com:8080/maturemedia/
+ProxyPassReverse /maturemedia/ http://www.idrivesafely.com:8080/maturemedia/
+
+ProxyPass /contentimages/ http://www.idrivesafely.com:8080/contentimages/
+ProxyPassReverse /contentimages/ http://www.idrivesafely.com:8080/contentimages/
+
+vim /ids/tools/CONF/dip01/wp_dip_rewrite.inc
+
+:16
+
+RewriteRule ^/maturemedia/ - [L]
+RewriteRule ^/contentimages/ - [L]
+
+apachectl configtest
+proxyctl configtest
+
+apachectl graceful
+proxyctl graceful
+
+ps axf |grep httpd
+
+
+Add this content at www.origin.idrivesafely.com at proxy.conf
+
+vim /ids/tools/CONF/dip01/proxy.conf
+
+  Alias /maturemedia /ids/tools/CONTENT/maturemedia
+   Alias /contentimages  /ids/tools/DIP/IMAGES/content/MATURE
+
